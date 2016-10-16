@@ -5,31 +5,7 @@
                 <li><a href="./Accounting">Accounting</a></li>
             </ul>
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Show<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./ShowAllInfo">All information</a></li>
-                            <li><a href="./ShowEmployeeInfo">EmployeeInfo table</a></li>
-                            <li><a href="./ShowWorkPlace">WorkPlace table</a></li>
-                            <li><a href="./ShowCompanies">Companies table</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <div>
-                        <form action="ClearDB" method="post">{% csrf_token %}
-                            <button type="submit" style="text-align : center">Clear database</button>
-                        </form>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <form action="LoadFromXML" method="post">{% csrf_token %}
-                            <button type="submit" style="text-align : center">Load from XML</button>
-                        </form>
-                    </div>
-                </li>
+                <li><a href="./">All information</a></li>
             </ul>
         </div>
     </div>
