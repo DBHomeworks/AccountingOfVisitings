@@ -2,7 +2,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.all_posts, name='all_posts'),
+    url(r'^$', views.showallinfo, name='all_posts'),
     url(r'^Accounting$', views.accounting, name='Accounting'),
     url(r'^Addvisiting$', views.addvisiting, name='AddVisiting'),
     url(r'^Deletevisiting$', views.deletevisiting, name='DeleteVisiting'),

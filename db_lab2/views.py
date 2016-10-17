@@ -6,30 +6,17 @@ from .forms import IdForm
 
 db = MyDataDase()
 
-def all_posts(request):
-    emp = db.ShowAllInfo()
-    print 'I am here'
-    return render(request, 'DB_LAB2/ShowAllInfo.html', {'emp': emp})
-
-def showcompanies(request):
-    emp = db.ShowTableCompanies()
-    return render(request, 'DB_LAB2/ShowCompanies.html', {'emp': emp})
-
 def showallinfo(request):
     emp = db.ShowAllInfo()
-    print 'I am here'
-    print emp
     return render(request, 'DB_LAB2/ShowAllInfo.html', {'emp': emp})
 
 def accounting(request):
     emp = db.Accounting()
+    emps = db.ShowAllInfo()
     if request.method == 'POST':
         info = db.GetVisitingById(request.POST['visit_id'])
-        print info
-        # info = [request.POST['employee_id'], request.POST['date']]
-        # return render(request, 'DB_LAB2/Accounting.html', {'emp' : emp, 'emps': emps, 'info': info})
-    # return render(request, 'DB_LAB2/Accounting.html', {'emp' : emp, 'emps': emps})
-    return render(request, 'DB_LAB2/Accounting.html', {'emp' : emp})
+        return render(request, 'DB_LAB2/Accounting.html', {'emp' : emp, 'emps': emps, 'info': info})
+    return render(request, 'DB_LAB2/Accounting.html', {'emp' : emp, 'emps' : emps})
 
 def addvisiting(request):
     if request.method == "POST":
@@ -40,7 +27,7 @@ def addvisiting(request):
 def deletevisiting(request):
     if request.method == 'POST':
         db.DeleteVisiting(request.POST)
-        return HttpResponseRedirect('/Accounting')
+    return HttpResponseRedirect('/Accounting')
 
 def showwithfamily(request):
     if request.method == 'POST':
