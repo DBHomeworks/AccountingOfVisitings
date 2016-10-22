@@ -35,12 +35,12 @@
                 <tr>
                     <td> {{ e.id }} </td>
                     <td> {{ e.name }} </td>
-                    <td> {{ e.birthday }} </td>
+                    <td> {{ e.birthday | date:"Y-m-d" }} </td>
                     <td> {{ e.family }} </td>
                     <td> {{ e.workplace.position }} </td>
                     <td> {{ e.workplace.salary }} </td>
                     <td> {{ e.workplace.company_car }} </td>
-                    <td> {{ e.workplace.start_of_working }} </td>
+                    <td> {{ e.workplace.start_of_working | date:"Y-m-d" }} </td>
                     <td> {{ e.workplace.company }} </td>
                 </tr>
             {% endfor %}
@@ -55,7 +55,7 @@
           </div>
     </form>
 </div>
-<div>
+{% comment %}<div>
     <form action="DateSearch" method="post">{% csrf_token %}
           <div class="input-append">
               <label for="DateSearch">Find employees, who were born: </label>
@@ -64,7 +64,7 @@
               <button type="submit" value="Search">Search</button>
           </div>
     </form>
-</div>
+</div>{% endcomment %}
 <div>
     <form action="ExactlySearch" method="post">{% csrf_token %}
           <div class="input-append">

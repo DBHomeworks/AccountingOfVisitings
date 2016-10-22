@@ -57,7 +57,6 @@ def booleanmodesearch(request):
     else:
         return HttpResponseRedirect('/ShowAllInfo')
 
-
 def editvisiting(request):
     if request.method == 'POST':
         db.EditVisit(request.POST)
