@@ -61,3 +61,15 @@ def editvisiting(request):
     if request.method == 'POST':
         db.EditVisit(request.POST)
         return HttpResponseRedirect('/Accounting')
+
+def companiessalary(request):
+    info = db.GetCompaniesSalary()
+    return render(request, 'DB_LAB2/companies_salary.html', {'info': info})
+
+def employeesinterests(request):
+    info = db.GetInterests()
+    return render(request, 'DB_LAB2/employees_interests.html', {'info': info})
+
+def employeesfamily(request):
+    info = db.EmployeesFamily()
+    return render(request, 'DB_LAB2/familyposition.html', {'info': info})

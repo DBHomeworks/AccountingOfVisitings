@@ -153,3 +153,33 @@ class MyDataDase:
 
         visit = {'employee' : ObjectId(employee_object_id), 'date' : date}
         visits.update({'_id' : ObjectId(request['visit_id'])}, {"$set" : visit}, upsert=False)
+
+    def GetCompaniesSalary(self):
+        rows = []
+        client = MongoClient('localhost', 27017)
+        db = client.attendance_records
+        collection = db.companies_salaries
+        for element in collection.find():
+            rows.append({'company_name' : element['_id'], 'salary' : element['salary']})
+        return rows
+
+    def GetInterests(self):
+        rows = []
+        client = MongoClient('localhost', 27017)
+        db = client.attendance_records
+        collection = db.interests
+        for element in collection.find():
+            rows.append({'interest' : element['_id'], 'value' : int(element['value'])})
+        return rows
+
+    def EmployeesFamily(self):
+        rows = []
+        client = MongoClient('localhost', 27017)
+        db = client.attendance_records
+        collection = db.employees_with_family
+        for element in collection.find():
+            value = "Doesn't has family"
+            if int(element['value']) == 1:
+                value = "Has a family"
+            rows.append({'name' : element['_id'], 'value' : value})
+        return rows

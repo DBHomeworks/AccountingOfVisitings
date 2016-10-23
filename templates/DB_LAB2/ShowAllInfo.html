@@ -29,6 +29,8 @@
             <th>Company car</th>
             <th>Start of working</th>
             <th>Company</th>
+            <th>Interests</th>
+
         </thead>
         <tbody>
             {% for e in emp %}
@@ -42,6 +44,10 @@
                     <td> {{ e.workplace.company_car }} </td>
                     <td> {{ e.workplace.start_of_working | date:"Y-m-d" }} </td>
                     <td> {{ e.workplace.company }} </td>
+                    <td> {% for i in e.interests %}
+                        {{ i }},
+                         {% endfor %}
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -12,7 +12,8 @@ urlpatterns = [
     url(r'^BooleanModeSearch$', views.booleanmodesearch, name='BooleanModeSearch'),
     url(r'^GetInfo$', views.accounting, name='get_info'),
     url(r'^EditVisiting$', views.editvisiting, name='get_info'),
+    url(r'^CompaniesSalary$', views.companiessalary, name='CompaniesSalary'),
+    url(r'^EmployeesInterests$', views.employeesinterests, name='EmployeesInterests'),
+    url(r'^EmployeesFamily$', views.employeesfamily, name='EmployeesFamily'),
 
-
-    #url(r'^Accounting/GetId$', views.GetId, name='Accounting'),
     ]
