@@ -76,17 +76,6 @@ class MyDataDase:
         visits = db.visiting
         result = visits.delete_many({"_id" : ObjectId(request['visit_id'])})
 
-    def ShowEmployeeWithFamily(self ,request):
-        rows = []
-
-        client = MongoClient('localhost', 27017)
-        db = client.attendance_records
-        employees = db.employee_info
-        for employee in employees.find({"family": 1}).sort('id'):
-            rows.append(employee)
-
-        return rows
-
     def DateSearch(self ,request):
         con = None
         rows = None

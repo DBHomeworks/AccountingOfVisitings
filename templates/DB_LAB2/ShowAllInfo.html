@@ -54,24 +54,6 @@
       </table>
 </div>
 <div>
-    <form action="Showwithfamily" method="post">{% csrf_token %}
-          <div class="input-append">
-              <label for="DateSearch">Show employees with family: </label>
-              <button type="submit" value="Add">Search</button>
-          </div>
-    </form>
-</div>
-{% comment %}<div>
-    <form action="DateSearch" method="post">{% csrf_token %}
-          <div class="input-append">
-              <label for="DateSearch">Find employees, who were born: </label>
-              <input name="from" type="date" placeholder="from">
-              <input name="to" type="date" placeholder="to">
-              <button type="submit" value="Search">Search</button>
-          </div>
-    </form>
-</div>{% endcomment %}
-<div>
     <form action="ExactlySearch" method="post">{% csrf_token %}
           <div class="input-append">
               <label for="DateSearch">Find employees from company: </label>

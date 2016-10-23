@@ -29,13 +29,6 @@ def deletevisiting(request):
         db.DeleteVisiting(request.POST)
     return HttpResponseRedirect('/Accounting')
 
-def showwithfamily(request):
-    if request.method == 'POST':
-        emp = db.ShowEmployeeWithFamily(request.POST)
-        return render(request, 'DB_LAB2/ShowAllInfo.html', {'emp' : emp})
-    else:
-        return HttpResponseRedirect('/ShowAllInfo')
-
 def datesearch(request):
     if request.method == 'POST':
         emp = db.DateSearch(request.POST)
