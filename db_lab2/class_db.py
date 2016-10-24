@@ -172,3 +172,26 @@ class MyDataDase:
                 value = "Has a family"
             rows.append({'name' : element['_id'], 'value' : value})
         return rows
+
+    def Agregate(self):
+        rows = []
+        client = MongoClient('localhost', 27017)
+        db = client.attendance_records
+        employees = db.employee_info
+
+        # pipe = [
+        #     {'$group': {'company_name': "$workplace.company", 'salary': {'$sum': "$workplace.salary"}}},
+        #     {'$sort': {'salary': 1}}
+        # ]
+
+        salaries = employees.aggregate([
+            {'$group': {'_id': "$workplace.company", 'salary': {'$sum': "$workplace.salary"}}},
+            {'$sort': {'salary': 1}}
+        ])
+
+        print(salaries)
+
+        for salary in salaries:
+            rows.append({'company_name' : salary['_id'], 'salary' : salary['salary']})
+
+        return rows

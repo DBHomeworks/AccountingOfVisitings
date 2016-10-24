@@ -56,7 +56,7 @@ def editvisiting(request):
         return HttpResponseRedirect('/Accounting')
 
 def companiessalary(request):
-    info = db.GetCompaniesSalary()
+    info = db.Agregate()
     return render(request, 'DB_LAB2/companies_salary.html', {'info': info})
 
 def employeesinterests(request):
