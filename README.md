@@ -16,20 +16,18 @@ NonSQL databases, second lab
 
 map/reduce: знайти кількість людей, яка має те, чи інше хобі:
 
-map = Code("function map() { "
+```map = Code("function map() { "
                 "for(var i in this.interests) { "
                     "emit(this.interests[i], 1); "
                         "} "
                 "}")
-                
 reduce = Code("function reduce(key, values) {"
              "var sum = 0;for(var i in values) {"
                   "sum += values[i];"
              "}"
       "return sum;"
       "}")
-
-result = db.employee_info.map_reduce(map, reduce, "interests")
+result = db.employee_info.map_reduce(map, reduce, "interests")```
 
 aggregate : знайти сумарну зарплату всіх робітників по компаніях.
 
